@@ -3,11 +3,11 @@ import numpy as np
 
 targetYear = 2020
 
+
+
 data = np.genfromtxt( "./data-ec/day1-input.csv", delimiter = '/n', dtype = int)
 small_nums = np.array([num for num in data if num <= targetYear/2])
 large_nums = np.array([num for num in data if num > targetYear/2])
-
-# for (small, big) in np.outer(small_nums, large_nums):
 
 sums = []
 summands = np.array([0,0])
