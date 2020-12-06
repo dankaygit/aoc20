@@ -1,6 +1,6 @@
-fileName = "../data-ec/day6-input.csv"
+fileName = "../data-ec/day6-input.txt"
 
-def readAnswers(fileName):
+def readAnswersPartA(fileName):
     file = open (fileName)
     lines = file.read().split('\n\n')
     file.close()
@@ -8,18 +8,46 @@ def readAnswers(fileName):
     
     return (answers)
 
+def solvePartB(fileName):
+    file = open (fileName)
+    lines = file.read().split('\n')
+    file.close()
+
+    sumAnswers = 0
+    end = len(lines)
+    previousString = set(lines[0])
+    
+    for i in range(end-1):
+        nextString = set(lines[i+1])
+
+        if nextString:
+            previousString = previousString.intersection(nextString)
+        else:
+            sumAnswers += len(previousString)
+            previousString = set(lines[i+2])
+        
+    sumAnswers += len(previousString)
+    
+    return (sumAnswers)
+        
+
+
+
 def countAnswers(line):
     numAnswers = len(set(line))
 
     return (numAnswers)
 
 def main(fileName):
-    answers = readAnswers(fileName)
+    answers = readAnswersPartA(fileName)
     sumAnswers = 0
     for answer in answers:
         sumAnswers += countAnswers(answer)
+
+    print ("Total sum of answers, part a: ", sumAnswers)
     
-    print ("Total sum of answers: ", sumAnswers)
+    answerB = solvePartB(fileName)
+    print ("Total sum of answers, part b: ", answerB)
 
 if __name__ == "__main__":
     import sys
