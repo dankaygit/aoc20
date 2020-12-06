@@ -1,5 +1,3 @@
-fileName = "../data-ec/day6-input.txt"
-
 def readAnswersPartA(fileName):
     file = open (fileName)
     lines = file.read().split('\n\n')
@@ -7,6 +5,13 @@ def readAnswersPartA(fileName):
     answers = [line.replace('\n', '') for line in lines]
     
     return (answers)
+
+
+def countAnswers(line):
+    numAnswers = len(set(line))
+
+    return (numAnswers)
+
 
 def solvePartB(fileName):
     file = open (fileName)
@@ -29,14 +34,7 @@ def solvePartB(fileName):
     sumAnswers += len(previousString)
     
     return (sumAnswers)
-        
-
-
-
-def countAnswers(line):
-    numAnswers = len(set(line))
-
-    return (numAnswers)
+       
 
 def main(fileName):
     answers = readAnswersPartA(fileName)
