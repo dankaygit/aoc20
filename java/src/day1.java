@@ -8,7 +8,7 @@ public class day1 {
     public static void main(String[] args) {
 
         ReadCSV Reader = new ReadCSV();
-        List<List<Integer>> input = Reader.readIntegers("../data/day1-input.csv", "\n\r");
+        List<List<Integer>> input = Reader.readIntegers("../data-ec/day1-input.csv", "\n\r");
 
         // Need to improve my ReadCSV class because in this instance it returned me a list of lists of one element each
         // The class needs to be a bit smarter about this
