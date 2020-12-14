@@ -10,17 +10,6 @@ def findSum(input, index):
     
     return (solutions)
 
-
-def solvePartA(input):
-    index = 25
-    summands = findSum(input, index)
-
-    while summands:
-        index += 1
-        summands = findSum(input, index)
-    
-    return ([index, input[index]])
-
 def findContiguous(input, index):
     found = False
     
@@ -42,6 +31,16 @@ def findContiguous(input, index):
         currentHigh -= 1
         currentLow = currentHigh - 2
         currentSum = input[currentLow:currentHigh].sum()
+
+def solvePartA(input):
+    index = 25
+    summands = findSum(input, index)
+
+    while summands:
+        index += 1
+        summands = findSum(input, index)
+    
+    return ([index, input[index]])
 
 def solvePartB(input, indexA):
     highLowIndices = findContiguous(input, indexA)
